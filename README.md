@@ -17,8 +17,8 @@ This project includes my work for [MP05: Augmentive and Alternative Communicatio
 ### Redo or above
 - [X] Includes the specified `.java` files, correctly named.  (They should
     be in the appropriate package.)
-- [ ] Each class has an introductory Javadoc comment that indicates
-    the author and purpose. **(Todo.)**
+- [X] Each class has an introductory Javadoc comment that indicates
+    the author and purpose.
 - [X] Includes a `README.md` file that contains the appropriate information 
     (authors, purpose, acknowledgements if appropriate)
 - [X] All files compile correctly.
