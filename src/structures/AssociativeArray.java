@@ -1,13 +1,13 @@
 package structures;
 
-import static java.lang.reflect.Array.newInstance;
+import java.lang.reflect.Array;
 
 /**
  * A basic implementation of Associative Arrays with keys of type K
  * and values of type V. Associative Arrays store key/value pairs
  * and permit you to look up values by key.
  *
- * @author Your Name Here
+ * @author Julian Kim
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
@@ -44,7 +44,7 @@ public class AssociativeArray<K, V> {
   @SuppressWarnings({ "unchecked" })
   public AssociativeArray() {
     // Creating new arrays is sometimes a PITN.
-    this.pairs = (KVPair<K, V>[]) newInstance((new KVPair<K, V>()).getClass(),
+    this.pairs = (KVPair<K, V>[]) Array.newInstance((new KVPair<K, V>()).getClass(),
         DEFAULT_CAPACITY);
     this.size = 0;
   } // AssociativeArray()
@@ -144,6 +144,17 @@ public class AssociativeArray<K, V> {
     return this.size;
   } // size()
 
+  @SuppressWarnings("unchecked")
+  public V[] getValues() {
+    V[] values = (V[]) new Object[size()];
+
+    for (int i = 0; i < size(); i++) {
+      values[i] = pairs[i].value;
+    }
+
+    return values;
+  }
+
   // +-----------------+---------------------------------------------
   // | Private Methods |
   // +-----------------+
@@ -151,7 +162,7 @@ public class AssociativeArray<K, V> {
   /**
    * Expand the underlying array.
    */
-  public void expand() {
+  private void expand() {
     this.pairs = java.util.Arrays.copyOf(this.pairs, this.pairs.length * 2);
   } // expand()
 
@@ -159,7 +170,7 @@ public class AssociativeArray<K, V> {
    * Find the index of the first entry in `pairs` that contains key.
    * If no such entry is found, throws an exception.
    */
-  public int find(K key) throws KeyNotFoundException {
+  private int find(K key) throws KeyNotFoundException {
     for (int i = 0; i < size; i++) {
       if (pairs[i].key.equals(key)) return i;
     }
