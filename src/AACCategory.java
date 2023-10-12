@@ -1,31 +1,42 @@
+import structures.AssociativeArray;
+import structures.KeyNotFoundException;
+
 public class AACCategory {
+  String categoryName;
+  AssociativeArray<String, String> textImageMap;
+
   /**
    * Constructor
    */
   public AACCategory(String name) {
-    // stub
+    categoryName = name;
+    textImageMap = new AssociativeArray<String, String>();
   }
 
   /**
    * Methods
    */
   public void addItem(String imageLoc, String text) {
-    // stub
+    textImageMap.set(imageLoc, text);
   }
   public String getCategory() {
-    return "";
-    // stub
+    return categoryName;
   }
   public String[] getImages() {
-    return new String[] {""};
-    // stub
+    return textImageMap.getKeys();
   }
-  public String getText(String imageLoc) {
-    return "";
-    // stub
+  public String getText(String imageLoc) throws KeyNotFoundException {
+    // if this throws an exception, we have screwed up somewhere.
+    // probably forgot to add an image.
+    return textImageMap.get(imageLoc);
   }
   public boolean hasImage(String imageLoc) {
-    return false;
+    try {
+      textImageMap.get(imageLoc);
+      return true;
+    } catch (KeyNotFoundException e) {
+      return false;
+    }
     // stub
   }
 }
