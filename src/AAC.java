@@ -44,7 +44,7 @@ public class AAC implements ActionListener {
 	 * @param filename the name of the file that contains the 
 	 * images and text that will be in the AAC
 	 */
-	public AAC(String filename){ 
+	public AAC(String filename) throws Exception { 
 		this.aacMappings = new AACMappings(filename);
 		this.images = this.aacMappings.getImageLocs();
 		this.startIndex = 0;
@@ -128,7 +128,7 @@ public class AAC implements ActionListener {
 		pane.requestFocusInWindow();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		try {
 			// Set property as Kevin Dictionary
@@ -152,7 +152,7 @@ public class AAC implements ActionListener {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		AAC aac = new AAC("AACMappings.txt");
+		new AAC("AACMappings.txt");
 	}
 
 	/**
@@ -172,7 +172,11 @@ public class AAC implements ActionListener {
 			this.endIndex = Math.min(endIndex + NUM_ACROSS*NUM_DOWN, this.images.length);
 		}
 		else if(actionCommand.equals("save")) {
-			this.aacMappings.writeToFile("AACMappingsNew.txt");
+			try {
+				this.aacMappings.writeToFile("AACMappingsNew.txt");
+			} catch (Exception ex) {
+				System.err.println("Failed to write to file.");
+			}
 			this.images = this.aacMappings.getImageLocs();
 			this.startIndex = 0;
 			this.endIndex = Math.min(NUM_ACROSS*NUM_DOWN, this.images.length);
@@ -195,7 +199,12 @@ public class AAC implements ActionListener {
 		}
 		else {
 			if(this.aacMappings.getCurrentCategory().equals("")) {
-				this.aacMappings.getText(actionCommand);
+				try {
+					this.aacMappings.getText(actionCommand);
+				} catch (Exception ex) {
+					System.err.println("Failed to set category");
+					System.exit(1);
+				}
 				this.images = this.aacMappings.getImageLocs();
 				this.startIndex = 0;
 				this.endIndex = Math.min(NUM_ACROSS*NUM_DOWN, this.images.length);
