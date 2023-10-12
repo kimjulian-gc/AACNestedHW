@@ -145,14 +145,14 @@ public class AssociativeArray<K, V> {
   } // size()
 
   @SuppressWarnings("unchecked")
-  public V[] getValues() {
-    V[] values = (V[]) new Object[size()];
+  public K[] getKeys() {
+    K[] keys = (K[]) new Object[size()];
 
     for (int i = 0; i < size(); i++) {
-      values[i] = pairs[i].value;
+      keys[i] = pairs[i].key;
     }
 
-    return values;
+    return keys;
   }
 
   // +-----------------+---------------------------------------------
