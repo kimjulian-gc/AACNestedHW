@@ -32,8 +32,7 @@ public class AACMappings {
         AACCategory newCat = new AACCategory(lineParsed[1]);
         currImageLoc = lineParsed[0];
         categories.set(currImageLoc, newCat);
-      }
-      else {
+      } else {
         line = line.substring(1);
         String[] lineParsed = line.split(" ");
         AACCategory addingCat = categories.get(currImageLoc);

@@ -23,7 +23,7 @@ This project includes my work for [MP05: Augmentive and Alternative Communicatio
     (authors, purpose, acknowledgements if appropriate)
 - [X] All files compile correctly.
 ### Meets expectations or above
-- [ ] Appears to follow Google Java style guidelines for indentation and such.
+- [X] Appears to follow Google Java style guidelines for indentation and such.
 - [X] Appears to correctly load a file.
 - [ ] Appears to correctly add an image to the top-level category. **(Didn't test yet.)**
 - [X] Appears to correctly switch to subcategories.

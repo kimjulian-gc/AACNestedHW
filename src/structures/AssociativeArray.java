@@ -3,9 +3,8 @@ package structures;
 import java.lang.reflect.Array;
 
 /**
- * A basic implementation of Associative Arrays with keys of type K
- * and values of type V. Associative Arrays store key/value pairs
- * and permit you to look up values by key.
+ * A basic implementation of Associative Arrays with keys of type K and values of type V.
+ * Associative Arrays store key/value pairs and permit you to look up values by key.
  *
  * @author Julian Kim
  * @author Samuel A. Rebelsky
@@ -41,11 +40,11 @@ public class AssociativeArray<K, V> {
   /**
    * Create a new, empty associative array.
    */
-  @SuppressWarnings({ "unchecked" })
+  @SuppressWarnings({"unchecked"})
   public AssociativeArray() {
     // Creating new arrays is sometimes a PITN.
-    this.pairs = (KVPair<K, V>[]) Array.newInstance((new KVPair<K, V>()).getClass(),
-        DEFAULT_CAPACITY);
+    this.pairs =
+        (KVPair<K, V>[]) Array.newInstance((new KVPair<K, V>()).getClass(), DEFAULT_CAPACITY);
     this.size = 0;
   } // AssociativeArray()
 
@@ -60,7 +59,7 @@ public class AssociativeArray<K, V> {
     AssociativeArray<K, V> clonedArr = new AssociativeArray<K, V>();
     for (KVPair<K, V> pair : pairs) {
       clonedArr.set(pair.key, pair.value);
-    } 
+    }
     return clonedArr;
   } // clone()
 
@@ -81,8 +80,7 @@ public class AssociativeArray<K, V> {
   // +----------------+
 
   /**
-   * Set the value associated with key to value. Future calls to
-   * get(key) will return value.
+   * Set the value associated with key to value. Future calls to get(key) will return value.
    */
   public void set(K key, V value) {
     int index;
@@ -91,7 +89,8 @@ public class AssociativeArray<K, V> {
       index = find(key);
     } catch (KeyNotFoundException e) {
       // expand if too small
-      if (size >= pairs.length) this.expand();
+      if (size >= pairs.length)
+        this.expand();
 
       index = size++;
     }
@@ -102,9 +101,7 @@ public class AssociativeArray<K, V> {
   /**
    * Get the value associated with key.
    *
-   * @throws KeyNotFoundException
-   *                              when the key does not appear in the associative
-   *                              array.
+   * @throws KeyNotFoundException when the key does not appear in the associative array.
    */
   public V get(K key) throws KeyNotFoundException {
     return pairs[find(key)].value;
@@ -124,9 +121,8 @@ public class AssociativeArray<K, V> {
   } // hasKey(K)
 
   /**
-   * Remove the key/value pair associated with a key. Future calls
-   * to get(key) will throw an exception. If the key does not appear
-   * in the associative array, does nothing.
+   * Remove the key/value pair associated with a key. Future calls to get(key) will throw an
+   * exception. If the key does not appear in the associative array, does nothing.
    */
   public void remove(K key) {
     try {
@@ -167,12 +163,13 @@ public class AssociativeArray<K, V> {
   } // expand()
 
   /**
-   * Find the index of the first entry in `pairs` that contains key.
-   * If no such entry is found, throws an exception.
+   * Find the index of the first entry in `pairs` that contains key. If no such entry is found,
+   * throws an exception.
    */
   private int find(K key) throws KeyNotFoundException {
     for (int i = 0; i < size; i++) {
-      if (pairs[i].key.equals(key)) return i;
+      if (pairs[i].key.equals(key))
+        return i;
     }
     throw new KeyNotFoundException();
   } // find(K)
