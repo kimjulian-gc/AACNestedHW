@@ -16,7 +16,9 @@ public class AACMappings {
    * Constructor
    */
   public AACMappings(String filename) throws Exception {
-    BufferedReader input = new BufferedReader(new FileReader(filename), 0);
+    categories = new AssociativeArray<String, AACCategory>();
+
+    BufferedReader input = new BufferedReader(new FileReader(filename));
 
     String currImageLoc = "";
     for (String line = input.readLine(); line != null; line = input.readLine()) {
