@@ -1,6 +1,11 @@
 import structures.AssociativeArray;
 import structures.KeyNotFoundException;
 
+/**
+ * Represents a single category of items in the AAC.
+ *
+ * @author Julian Kim
+ */
 public class AACCategory {
   /**
    * Fields
@@ -36,7 +41,7 @@ public class AACCategory {
     // probably forgot to add an image.
     return textImageMap.get(imageLoc);
   }
-  
+
   public boolean hasImage(String imageLoc) {
     try {
       textImageMap.get(imageLoc);

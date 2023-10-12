@@ -5,6 +5,11 @@ import java.io.PrintWriter;
 import structures.AssociativeArray;
 import structures.KeyNotFoundException;
 
+/**
+ * Keeps track of the complete set of AAC mappings.
+ *
+ * @author Julian Kim
+ */
 public class AACMappings {
   /**
    * Fields

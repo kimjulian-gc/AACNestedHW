@@ -5,7 +5,12 @@ import java.util.Locale;
 import javax.speech.Central;
 import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
-  
+
+/**
+ * Does text to speech stuff.
+ * 
+ * @author Catie Baker
+ */
 public class TextSpeech {
   
     public static void main(String[] args)

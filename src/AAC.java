@@ -23,7 +23,7 @@ import javax.speech.synthesis.SynthesizerModeDesc;
  * communication device of the AAC.
  * 
  * @author Catie Baker
- *
+ * @author Julian Kim
  */
 public class AAC implements ActionListener {
 
