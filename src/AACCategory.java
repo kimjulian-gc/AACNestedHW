@@ -33,7 +33,9 @@ public class AACCategory {
   }
 
   public String[] getImages() {
-    return textImageMap.getKeys();
+    String[] images = textImageMap.getKeys();
+    if (images == null) images = new String[] {""};
+    return images;
   }
 
   public String getText(String imageLoc) throws KeyNotFoundException {

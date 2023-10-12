@@ -142,6 +142,8 @@ public class AssociativeArray<K, V> {
 
   @SuppressWarnings("unchecked")
   public K[] getKeys() {
+    if (size() == 0) return null;
+    
     K[] keys = (K[]) Array.newInstance(pairs[0].key.getClass(), size());
 
     for (int i = 0; i < size(); i++) {

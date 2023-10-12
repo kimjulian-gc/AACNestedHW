@@ -25,7 +25,7 @@ This project includes my work for [MP05: Augmentive and Alternative Communicatio
 ### Meets expectations or above
 - [X] Appears to follow Google Java style guidelines for indentation and such.
 - [X] Appears to correctly load a file.
-- [ ] Appears to correctly add an image to the top-level category. **(Didn't test yet.)**
+- [X] Appears to correctly add an image to the top-level category.
 - [X] Appears to correctly switch to subcategories.
 - [X] Successfully grabs words from subcategories.
 - [X] Appears to correctly switch to the default screen.
