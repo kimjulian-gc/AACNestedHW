@@ -30,8 +30,8 @@ This project includes my work for [MP05: Augmentive and Alternative Communicatio
 - [X] Successfully grabs words from subcategories.
 - [X] Appears to correctly switch to the default screen.
 ### Exemplary / Exceeds expectations
-- [ ] All (or most) repeated code has been factored out into individual 
-    methods. **(Didn't check yet.)**
+- [X] All (or most) repeated code has been factored out into individual 
+    methods. *(To my knowledge.)*
 - [X] All or most variable names are appropriate. *(Probably.)*
 - [X] `AACCategory` and `AACMappings` do not access any fields in
     `AssociationList` or `KVPair`.
