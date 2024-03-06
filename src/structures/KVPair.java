@@ -13,12 +13,12 @@ class KVPair<K, V> {
   /**
    * The key.
    */
-  K key;
+  private K key;
 
   /**
    * The value.
    */
-  V value;
+  private V value;
 
   // +--------------+------------------------------------------------
   // | Constructors |
@@ -42,6 +42,13 @@ class KVPair<K, V> {
   // +------------------+--------------------------------------------
   // | Standard methods |
   // +------------------+
+  public K getKey() {
+    return this.key;
+  }
+
+  public V getValue() {
+    return this.value;
+  }
 
   public KVPair<K, V> clone() {
     return new KVPair<K, V>(this.key, this.value);

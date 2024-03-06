@@ -26,12 +26,12 @@ public class AssociativeArray<K, V> {
   /**
    * The size of the associative array (the number of key/value pairs).
    */
-  int size;
+  private int size;
 
   /**
    * The array of key/value pairs.
    */
-  KVPair<K, V> pairs[];
+  private KVPair<K, V> pairs[];
 
   // +--------------+------------------------------------------------
   // | Constructors |
@@ -58,7 +58,7 @@ public class AssociativeArray<K, V> {
   public AssociativeArray<K, V> clone() {
     AssociativeArray<K, V> clonedArr = new AssociativeArray<K, V>();
     for (KVPair<K, V> pair : pairs) {
-      clonedArr.set(pair.key, pair.value);
+      clonedArr.set(pair.getKey(), pair.getValue());
     }
     return clonedArr;
   } // clone()
@@ -67,9 +67,9 @@ public class AssociativeArray<K, V> {
    * Convert the array to a string.
    */
   public String toString() {
-    String returnStr = "{ " + pairs[0].key + ": " + pairs[0].value;
+    String returnStr = "{ " + pairs[0].getKey() + ": " + pairs[0].getValue();
     for (int i = 1; i < size; i++) {
-      returnStr += ", " + pairs[i].key + ": " + pairs[i].value;
+      returnStr += ", " + pairs[i].getKey() + ": " + pairs[i].getValue();
     }
     returnStr += " }";
     return returnStr;
@@ -104,7 +104,7 @@ public class AssociativeArray<K, V> {
    * @throws KeyNotFoundException when the key does not appear in the associative array.
    */
   public V get(K key) throws KeyNotFoundException {
-    return pairs[find(key)].value;
+    return pairs[find(key)].getValue();
   } // get(K)
 
   /**
@@ -144,10 +144,10 @@ public class AssociativeArray<K, V> {
   public K[] getKeys() {
     if (size() == 0) return null;
     
-    K[] keys = (K[]) Array.newInstance(pairs[0].key.getClass(), size());
+    K[] keys = (K[]) Array.newInstance(pairs[0].getKey().getClass(), size());
 
     for (int i = 0; i < size(); i++) {
-      keys[i] = pairs[i].key;
+      keys[i] = pairs[i].getKey();
     }
 
     return keys;
@@ -170,7 +170,7 @@ public class AssociativeArray<K, V> {
    */
   private int find(K key) throws KeyNotFoundException {
     for (int i = 0; i < size; i++) {
-      if (pairs[i].key.equals(key))
+      if (pairs[i].getKey().equals(key))
         return i;
     }
     throw new KeyNotFoundException();
